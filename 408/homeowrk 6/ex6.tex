@@ -1,14 +1,43 @@
 \documentclass{article}
 \usepackage{enumerate}
 \usepackage[margin=.65in]{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{graphicx}
+
+\lstset{ %
+  language=C,                % the language of the code
+  basicstyle=\ttfamily,           % the size of the fonts that are used for the code
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny,  % the style that is used for the line-numbers
+  stepnumber=1,                   % the step between two line-numbers. If it's 1, each line 
+                                  % will be numbered
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},      % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  frame=single,                   % adds a frame around the code
+  rulecolor=\color{black},        % if not set, the frame-color may be changed on line-breaks within not-black text (e.g. commens (green here))
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=false,        % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                   % show the filename of files included with \lstinputlisting;
+                                  % also try caption instead of title
+  keywordstyle=\color{blue},          % keyword style
+  %commentstyle=\color{dkgreen},       % comment style
+  %stringstyle=\color{mauve},         % string literal style
+  escapeinside={\%*}{*)},            % if you want to add LaTeX within your code
+  morekeywords={*,...},               % if you want to add more keywords to the set
+}
+
 \begin{document}
-
-
 \section{Chapter 13}
 \begin{enumerate}[(1)]
 %question 1
 \item
-\textbf{What are three possible levels of concurrency in program?}\\
+\textbf{\textit{What are three possible levels of concurrency in program?}}\\
 \textbf{Answer: } Three possible levels of concurrency in program are\
 	\begin{itemize}
 	\item Machine instruction levels
@@ -18,22 +47,22 @@
 
 %question 2
 \item
-\textbf{What is the difference between physical and logical concurrency? }\\
+\textbf{\textit{What is the difference between physical and logical concurrency? }}\\
 \textbf{Answer:} Physical concurrency will allow several programs to execute simultaneously on more than one processor while logical concurrency happens when the execution of several programs take place in an interleaving fashion on a single processor. In other words, physical concurrency uses the power of the hardware to execute many programs at the same time while logical concurrency uses the power of logics, coding to execute many programs at the same time.
 
 %question 3
 \item 
-\textbf{What is a thread of control in a program?}\\
+\textbf{\textit{What is a thread of control in a program?}}\\
 \textbf{Answer: } Thread of control in a program is the sequence of program points reached as control flows through the program.
 
 %question 4
 \item 
-\textbf{What is a multithreaded program?}\\
+\textbf{\textit{What is a multithreaded program?}}\\
 \textbf{Answer: } A program that is designed to have more than one thread of control.
 
 %question 5
 \item
-\textbf{What is a heavyweight task? What is a lightweight task?}\\
+\textbf{\textit{What is a heavyweight task? What is a lightweight task?}}\\
 \textbf{Answer: }
 	\begin{itemize}
 	\item heavyweight task: are tasks that execute in their own address space
@@ -43,26 +72,123 @@
 
 %question 6
 \item 
-\textbf{What kind of tasks do not require any kind of synchronization?}\\
+\textbf{\textit{What kind of tasks do not require any kind of synchronization?}}\\
 \textbf{Answer: } Disjoint task do not require an kind of synchronization because it does not communicate with or affect the execution of any other task in the program in any way.
+
+%Question 7
+\item 
+\textbf{\textit{Specifically, what Java program unit can run concurrently with the main method in an application program?}}\\
+\textbf{Answer: } Java Threads  
 
 %Question 8
 \item 
-\textbf{Specifically, what Java program unit can run concurrently with the main method in an application program?}\\
-\textbf{Answer: } Java Threads  
-
-%Question 9
-\item 
-\textbf{Are Java threads lightweight or heavyweight tasks?}\\
+\textbf{\textit{Are Java threads lightweight or heavyweight tasks?}}\\
 \textbf{Answer:} Java threads are lightweight tasks.
 
 %Problem set
 \item 
-\textbf{Problem set:}\\
+\textbf{\textit{Problem set:}}\\
  Suppose two tasks A and B must use the shared variable Buf\_Size. Task A adds 2 to Buf\_Size, and task B subtracts 1 from it. Assume that such arithmetic operations are done by the three-step process of fetching the current value, performing the arithmetic, and putting the new value back. In the absence of competition synchronization, what sequences of events are possible and what values result from these operations? Assume the initial value of Buf\_Size is 6.
-
 \textbf{Answer: }  
 
 \end{enumerate}
 
+\section{Chapter 14:}
+\begin{enumerate}
+
+% Question 1
+\item 
+\textbf{\textit{What is the name of all C++ exception handlers?}}\\
+\textbf{Answer: } In C++, all exception handlers are the catch functions in the try-catch blocks.
+
+% Question 2
+\item 
+\textbf{\textit{How can exceptions be explicitly raised in C++?}}\\
+\textbf{Answer: } We can use the \lstinline{throw} clause\\
+\begin{lstlisting}
+	if(endOfFile == true)
+	{
+		throw new EndOfFileEx("this is the end of file");
+	}
+\end{lstlisting}
+
+
+% Question 3
+\item 
+\textbf{\textit{How are exceptions bound to handlers in C++?}}\\
+\textbf{Answer: }\\ 
+Exceptions is raised by the \lstinline{throw [expression]} clause. The type of the \lstinline{throw} expression will select the particular handler. Let's say the throw expression is type T, and a handler whose parameter is type T or any classes that is an ancestor of T matches will be chosen.\\
+
+
+% Question 4
+\item 
+\textbf{\textit{Does C++ include built-in exceptions?}}\\
+\textbf{Answer: }
+
+% Question 5
+\item 
+\textbf{\textit{What is the root  class of all Java exception classes?}}\\
+\textbf{Answer: }
+
+% Question 6
+\item 
+\textbf{\textit{What is the parent class of most Java user-defined exception classes?}}\\
+\textbf{Answer: }
+
+% Question 7
+\item 
+\textbf{\textit{How can an exception handler be written in Java so that it handles any exception?}}\\
+\textbf{Answer: }
+
+% Question 8
+\item 
+\textbf{\textit{What is the difference between checked and unchecked exceptions in Java?}}\\
+\textbf{Answer: }
+
+% Question 9
+\item 
+\textbf{\textit{What is the purpose of the Java finally clause?}}\\
+\textbf{Answer: }
+
+%Problem set
+\item 
+\begin{lstlisting}
+class Big {
+	int i;  float f;
+	void fun1() throw int { 
+		...
+		try {
+		...
+		throw i;  	//#1
+		...
+		throw f;		//#2
+		...
+	}
+	catch(float) { …}
+	...
+	}
+}
+class Small {
+ 	int j; float g;
+	void fun2 () throw float {
+		...
+		try {  ...
+			try {
+				Big.fun1();
+				....
+				throw j;		//#3
+				...
+				throw g;	//#4
+				...
+			}
+			catch(int) {...{
+			...
+		 }
+		catch(float) {...}
+	}
+}
+\end{lstlisting}
+In each of the four throw statements, where is the exception handled? Note that fun1 is called from fun2 in class small.\\
+\textbf{Answer: }
+\end{enumerate}
 \end{document}
