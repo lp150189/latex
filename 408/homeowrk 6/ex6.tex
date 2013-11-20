@@ -1,0 +1,68 @@
+\documentclass{article}
+\usepackage{enumerate}
+\usepackage[margin=.65in]{geometry}
+\begin{document}
+
+
+\section{Chapter 13}
+\begin{enumerate}[(1)]
+%question 1
+\item
+\textbf{What are three possible levels of concurrency in program?}\\
+\textbf{Answer: } Three possible levels of concurrency in program are\
+	\begin{itemize}
+	\item Machine instruction levels
+	\item High-level language statement levels
+	\item Program levels
+	\end{itemize}
+
+%question 2
+\item
+\textbf{What is the difference between physical and logical concurrency? }\\
+\textbf{Answer:} Physical concurrency will allow several programs to execute simultaneously on more than one processor while logical concurrency happens when the execution of several programs take place in an interleaving fashion on a single processor. In other words, physical concurrency uses the power of the hardware to execute many programs at the same time while logical concurrency uses the power of logics, coding to execute many programs at the same time.
+
+%question 3
+\item 
+\textbf{What is a thread of control in a program?}\\
+\textbf{Answer: } Thread of control in a program is the sequence of program points reached as control flows through the program.
+
+%question 4
+\item 
+\textbf{What is a multithreaded program?}\\
+\textbf{Answer: } A program that is designed to have more than one thread of control.
+
+%question 5
+\item
+\textbf{What is a heavyweight task? What is a lightweight task?}\\
+\textbf{Answer: }
+	\begin{itemize}
+	\item heavyweight task: are tasks that execute in their own address space
+	\item lightweight task: are tasks that all run in the same address space ( more efficient )
+	\end{itemize}
+
+
+%question 6
+\item 
+\textbf{What kind of tasks do not require any kind of synchronization?}\\
+\textbf{Answer: } Disjoint task do not require an kind of synchronization because it does not communicate with or affect the execution of any other task in the program in any way.
+
+%Question 8
+\item 
+\textbf{Specifically, what Java program unit can run concurrently with the main method in an application program?}\\
+\textbf{Answer: } Java Threads  
+
+%Question 9
+\item 
+\textbf{Are Java threads lightweight or heavyweight tasks?}\\
+\textbf{Answer:} Java threads are lightweight tasks.
+
+%Problem set
+\item 
+\textbf{Problem set:}\\
+ Suppose two tasks A and B must use the shared variable Buf\_Size. Task A adds 2 to Buf\_Size, and task B subtracts 1 from it. Assume that such arithmetic operations are done by the three-step process of fetching the current value, performing the arithmetic, and putting the new value back. In the absence of competition synchronization, what sequences of events are possible and what values result from these operations? Assume the initial value of Buf\_Size is 6.
+
+\textbf{Answer: }  
+
+\end{enumerate}
+
+\end{document}
