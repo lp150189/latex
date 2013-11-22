@@ -16,6 +16,42 @@ By substituting the actual parameters into the function body, the function body 
 
 \textbf{SubProgram as parameter}
 \textbf{Why do we do that, what is the advantage and disadvantage:}\\
+advantage: very flexible, like the call back function that make the server works faster.
+disadvantage: hard to understand, bad readability. 
+function sub1() {
+var x;
+function sub2() {
+alert(x); // Creates a dialog box with the value of x
+};
+function sub3() {
+var x;
+x = 3;
+sub4(sub2);
+};
+function sub4(subx) {
+var x;
+x = 4;
+subx();
+};
+x = 1;
+sub3();
+};
 
-\textbf{Overloaded subprogram}
-\textbf{what why and how}
+Consider the execution of sub2 when it is called in sub4. For shallow
+binding, the referencing environment of that execution is that of sub4, so the
+reference to x in sub2 is bound to the local x in sub4, and the output of the
+program is 4. For deep binding, the referencing environment of sub2’s execution
+is that of sub1, so the reference to x in sub2 is bound to the local x in
+sub1, and the output is 1. For ad hoc binding, the binding is to the local x in
+sub3, and the output is 3.
+
+
+\textbf{Overloaded subprogram}: An overloaded subprogram is one that has the same name as another subprogram in the same referencing environment but with different or unique protocols. Ada, Java, C++, and C# allow users to write multiple versions of subprograms with the same name. \textbf{advantage}: very flexible, you can use a function with just the protocols you need, therefore the programmer don't have to memorize the header and signature of the method.\textbf{A polymorphic subprogram} takes parameters of different types on different activations.\textbf{Subtype polymorphism} means that a variable of type T can access any object of type T or any type derived from T.
+
+\textbf{Generic SubProgram}: Parametric polymorphism is provided by a subprogram that takes
+generic parameters that are used in type expressions that describe the types
+of the parameters of the subprogram. Different instantiations of such subprograms
+can be given different generic parameters, producing subprograms that
+take different types of parameters. Parametric definitions of subprograms all
+behave the same. Parametrically polymorphic subprograms are often called
+generic subprograms.
