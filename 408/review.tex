@@ -1,0 +1,21 @@
+\section{SubProgram}
+\textbf{pass by value:}The value of the actual parameter is used to initialize the corresponding formal parameter. advantage: fast, disadvantage: additional storage
+\textbf{Example} Java;\\
+\textbf{pass by reference} pass an access path. advantage no copying or duplicate storage. disadvantage: slower access, potential unwanted side effects.
+\textbf{Example} C++\\
+\textbf{pass by value-result:} combination of pass by value and pass by result. disadvantage is copy storage, 
+\textbf{Example} Fortrans\\
+\textbf{pass by name:} by textual substitution. Formals are bound to an access method at the time of the call, but actual binding to a value or address takes place at the time of a reference or assignment. Allows flexibility in late binding. Implementation requires that the referencing environment of the caller is passed with the parameter, so the actual parameter address can be calculated. Disadvantages: Very tricky hard to read and understand. Essentially, the body of a function is interpreted at call time after textually substituting the actual parameters into the function body. In this sense the evaluation method is similar to that of C preprocessor macros.
+
+By substituting the actual parameters into the function body, the function body can both read and write the given parameters. In this sense the evaluation method is similar to pass-by-reference. The difference is that since with pass-by-name the parameter is evaluated inside the function, a parameter such as a[i] depends on the current value of i inside the function, rather than referring to the value at a[i] before the function was called.
+
+
+\textbf{Example:}Algol 60 \\
+
+\texbf{Example home work 4 and problem 9}\\
+
+\textbf{SubProgram as parameter}
+\textbf{Why do we do that, what is the advantage and disadvantage:}\\
+
+\textbf{Overloaded subprogram}
+\textbf{what why and how}
